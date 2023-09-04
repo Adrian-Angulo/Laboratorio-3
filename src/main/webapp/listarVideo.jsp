@@ -21,9 +21,16 @@
             
             //mostrar los dato del array
             for(Video v: misVideos){
-                out.println("idVideo: "+v.getIdVideo());
-                out.println("Titulo: "+v.getTitulo());
-            }
+
         %>
+        <p><%=v.getTitulo()%></p>
+        <p><%=v.getUrl()%></p>
+        <p>Autor: <%=v.getAutor()%></p>
+        <p>Año: <%=v.getAnio()%></p>
+        <p>Categoria: <%=v.getCategoria()%></p>
+        <p>Letra: <%=v.getLetra()%></p>
+        <p>Id: <%=v.getIdVideo()%></p>
+        
+            <%}%>
     </body>
 </html>
