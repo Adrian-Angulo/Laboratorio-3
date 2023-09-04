@@ -4,6 +4,9 @@
  */
 package com.mycompany.mundo;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -93,7 +96,7 @@ public class Video {
         this.letra = letra;
     }
 
-public void obtenerRepote(ArrayList<Video> misVideos){
+    public void obtenerRepote(ArrayList<Video> misVideos){
         
         try (PrintWriter pluma = new PrintWriter(new FileWriter("C:/Users/ADRIAN CASTILLO/Documents/NetBeansProjects/mavenproject1/src/main/java/data/data.txt", true))){
             for (Video v : misVideos) {
@@ -114,6 +117,21 @@ public void obtenerRepote(ArrayList<Video> misVideos){
             Logger.getLogger(Video.class.getName()).log(Level.SEVERE, null, ex);
         }
     
+    }
+    public ArrayList<Video> leerReporte (ArrayList<Video> misVideos){
+        try (BufferedReader lector = new BufferedReader( new FileReader("C:/Users/ADRIAN CASTILLO/Documents/NetBeansProjects/mavenproject1/src/main/java/data/data.txt"))){
+            String cadena;
+            while((cadena = lector.readLine())!=null){
+                String campo[] = cadena.split(",");
+                misVideos.add(new Video(Integer.parseInt(campo[0]), campo[1], campo[2], campo[3], campo[4], campo[5], campo[6]));
+            }
+        } catch (FileNotFoundException ex) { 
+            Logger.getLogger(Video.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Video.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return misVideos;
     }
     
     

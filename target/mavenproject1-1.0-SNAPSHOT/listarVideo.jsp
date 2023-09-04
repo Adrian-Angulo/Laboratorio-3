@@ -7,6 +7,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.mycompany.mundo.Video"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,6 +15,7 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <a href="index.jsp">Regresar al menu</a>
         <h1>Listar Videos</h1>
         <% 
             //obtener el arraylilst de la solicitud
@@ -23,6 +25,7 @@
             for(Video v: misVideos){
 
         %>
+        
         <p><%=v.getTitulo()%></p>
         <p><%=v.getUrl()%></p>
         <p>Autor: <%=v.getAutor()%></p>

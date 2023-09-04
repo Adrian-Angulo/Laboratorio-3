@@ -32,7 +32,7 @@ public class SvVideo extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
          // aqui vienen los datos por POST
-        String idVideo = request.getParameter("idVideo");
+        int idVideo = Integer.parseInt(request.getParameter("idVideo"));
         String titulo = request.getParameter("titulo");
         String autor = request.getParameter("autor");
         String anio = request.getParameter("anio");
@@ -49,15 +49,16 @@ public class SvVideo extends HttpServlet {
 //        System.out.println(letra);
             
 //       Ingresar los dato al objecto
-            Video miVideo = new Video(Integer.parseInt(idVideo), titulo, autor, anio, categoria, url, letra);
+            Video miVideo = new Video(idVideo, titulo, autor, anio, categoria, url, letra);
             misVideos.add(miVideo);
+            
             new Video().obtenerRepote(misVideos);
             
             //Agregar el arraysList al objecto de solicitud como atributo
             request.setAttribute("misVideos", misVideos);
             
             //redirecionar a la paguina web destino
-            request.getRequestDispatcher("listarVideo.jsp").forward(request, response);
+            request.getRequestDispatcher("index.jsp").forward(request, response);
 
 
             

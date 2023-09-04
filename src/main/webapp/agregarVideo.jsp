@@ -31,12 +31,12 @@
             <input type="text" name="categoria"><br>
             
             <label for="url">Url</label>
-            <input type="text" name="url"><br>
+            <textarea id="id" name="url" rows="5" cols="10"></textarea><br>
+            
             
             <label for="letra">Letra</label>
-            <input type="text" name="letra"><br>
+            <textarea id="id" name="letra" rows="5" cols="10"></textarea><br>
             
-            <textarea id="id" name="name" rows="5" cols="10"></textarea>
             <input type="submit" value="Agregar Video">
         </form>
         <a href="index.jsp">Regresar al menu</a>
