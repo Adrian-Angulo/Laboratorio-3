@@ -4,6 +4,13 @@
  */
 package com.mycompany.mundo;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author ADRIAN CASTILLO
@@ -84,6 +91,29 @@ public class Video {
 
     public void setLetra(String letra) {
         this.letra = letra;
+    }
+
+public void obtenerRepote(ArrayList<Video> misVideos){
+        
+        try (PrintWriter pluma = new PrintWriter(new FileWriter("C:/Users/ADRIAN CASTILLO/Documents/NetBeansProjects/mavenproject1/src/main/java/data/data.txt", true))){
+            for (Video v : misVideos) {
+                
+                pluma.println(
+                v.getIdVideo()+","+
+                v.getTitulo()+","+
+                v.getAutor()+","+
+                v.getAnio()+","+
+                v.getCategoria()+","+
+                v.getUrl()+","+
+                v.getLetra()
+                );
+                System.out.println("Reporte creado con exito");
+            }
+ 
+        }catch (IOException ex) {
+            Logger.getLogger(Video.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
     }
     
     

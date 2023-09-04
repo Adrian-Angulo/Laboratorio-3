@@ -51,6 +51,7 @@ public class SvVideo extends HttpServlet {
 //       Ingresar los dato al objecto
             Video miVideo = new Video(Integer.parseInt(idVideo), titulo, autor, anio, categoria, url, letra);
             misVideos.add(miVideo);
+            new Video().obtenerRepote(misVideos);
             
             //Agregar el arraysList al objecto de solicitud como atributo
             request.setAttribute("misVideos", misVideos);
