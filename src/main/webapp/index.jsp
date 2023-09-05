@@ -17,7 +17,7 @@
         <% 
             ArrayList<Video> misVideos = new ArrayList<>();
             Video vd = new Video();
-            vd.leerReporte(misVideos);          
+            //vd.leerReporte(misVideos);          
             request.setAttribute("misVideos", misVideos);
         %>
         <h1>Sistema Reproductor de videos</h1>
